@@ -1,5 +1,6 @@
 package com.apaza.moises.practicegreendao.database;
 
+import java.util.List;
 import com.apaza.moises.practicegreendao.database.DaoSession;
 import de.greenrobot.dao.DaoException;
 
@@ -27,6 +28,7 @@ public class Place {
     private User user;
     private Long user__resolvedKey;
 
+    private List<Rating> RatingPlace;
 
     public Place() {
     }
@@ -135,6 +137,28 @@ public class Place {
             userId = user.getId();
             user__resolvedKey = userId;
         }
+    }
+
+    /** To-many relationship, resolved on first access (and after reset). Changes to to-many relations are not persisted, make changes to the target entity. */
+    public List<Rating> getRatingPlace() {
+        if (RatingPlace == null) {
+            if (daoSession == null) {
+                throw new DaoException("Entity is detached from DAO context");
+            }
+            RatingDao targetDao = daoSession.getRatingDao();
+            List<Rating> RatingPlaceNew = targetDao._queryPlace_RatingPlace(id);
+            synchronized (this) {
+                if(RatingPlace == null) {
+                    RatingPlace = RatingPlaceNew;
+                }
+            }
+        }
+        return RatingPlace;
+    }
+
+    /** Resets a to-many relationship, making the next get call to query for a fresh result. */
+    public synchronized void resetRatingPlace() {
+        RatingPlace = null;
     }
 
     /** Convenient call for {@link AbstractDao#delete(Object)}. Entity must attached to an entity context. */

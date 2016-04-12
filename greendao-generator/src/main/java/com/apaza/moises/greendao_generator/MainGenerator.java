@@ -37,8 +37,6 @@ public class MainGenerator {
         place.addStringProperty("address");
         place.addStringProperty("description");
         place.addStringProperty("pathImage");
-
-        //Property idUser = user.addLongProperty("idUser").getProperty();
         Property userId = place.addLongProperty("userId").notNull().getProperty();
 
         //Llave foranea de usuario en la tabla de lugares
@@ -49,16 +47,16 @@ public class MainGenerator {
         userToPlace.setName("Places");
         userToPlace.orderAsc(namePlace);
 
-        /*Entity rating = schema.addEntity("Rating");
-        Property idPlaceInRating = rating.addLongProperty("idPlace").notNull().getProperty();
-        Property idUserInRating = rating.addLongProperty("idUser").notNull().getProperty();
+        Entity rating = schema.addEntity("Rating");
+        Property placeIdInRating = rating.addLongProperty("placeId").notNull().getProperty();
+        Property userIdInRating = rating.addLongProperty("userId").notNull().getProperty();
         rating.addFloatProperty("qualification");
         rating.addStringProperty("comment");
 
-        rating.addToOne(user, idUserInRating);
+        rating.addToOne(user, userIdInRating);
 
-        ToMany ratingOfPlace = place.addToMany(rating, idPlaceInRating);
-        ratingOfPlace.setName("RatingPlace");*/
+        ToMany ratingOfPlace = place.addToMany(rating, placeIdInRating);
+        ratingOfPlace.setName("RatingPlace");
 
         try{
             DaoGenerator daoGenerator = new DaoGenerator();
