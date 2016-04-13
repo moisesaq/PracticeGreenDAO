@@ -54,20 +54,20 @@ public class RegisterPlaceFragment extends Fragment implements View.OnClickListe
     public void onClick(View v) {
         try{
             if(v.getId() == register.getId()){
-                userDao.insert(getNewUserOfView());
-                placeDao.insert(getNewPlaceOfView());
+                long userId = userDao.insert(getNewUserOfView());
+                placeDao.insert(getNewPlaceOfView(userId));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
     }
 
-    public Place getNewPlaceOfView(){
+    public Place getNewPlaceOfView(long userId){
         Place place = new Place();
         place.setName(etName.getText().toString());
         place.setAddress(etAddress.getText().toString());
         place.setDescription(etDescription.getText().toString());
-        place.setUser(getNewUserOfView());
+        place.setUserId(userId);
 
         return place;
     }
