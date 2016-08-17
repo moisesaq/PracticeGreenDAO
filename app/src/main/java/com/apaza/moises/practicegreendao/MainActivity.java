@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_see_list) {
-            showFragment(ListFragment.newInstance());
+            //showFragment(ListFragment.newInstance());
             return true;
         }
 

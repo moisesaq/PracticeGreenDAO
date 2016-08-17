@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class SignUpFragment extends Fragment {
+public class OnBoardingFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     private String mParam1;
@@ -35,12 +35,12 @@ public class SignUpFragment extends Fragment {
 
     private OnFragmentSignUpListener mListener;
 
-    public static SignUpFragment newInstance() {
-        SignUpFragment fragment = new SignUpFragment();
+    public static OnBoardingFragment newInstance() {
+        OnBoardingFragment fragment = new OnBoardingFragment();
         return fragment;
     }
 
-    public SignUpFragment() {
+    public OnBoardingFragment() {
         // Required empty public constructor
     }
 

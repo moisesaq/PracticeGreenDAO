@@ -1,8 +1,6 @@
 package com.apaza.moises.practicegreendao.login;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -12,7 +10,7 @@ import android.view.View;
 
 import com.apaza.moises.practicegreendao.R;
 
-public class SignUpActivity extends AppCompatActivity implements SignUpFragment.OnFragmentSignUpListener{
+public class SignUpActivity extends AppCompatActivity implements OnBoardingFragment.OnFragmentSignUpListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +20,7 @@ public class SignUpActivity extends AppCompatActivity implements SignUpFragment.
         setSupportActionBar(toolbar);
 
         toolbar.setVisibility(View.GONE);
-        showFragment(SignUpFragment.newInstance());
+        showFragment(OnBoardingFragment.newInstance());
 
         /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
